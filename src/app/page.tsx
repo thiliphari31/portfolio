@@ -208,7 +208,7 @@ export default function Home() {
               ].map(({ title, color, content }) => (
                 <div
                   key={title}
-                  className={`group bg-white dark:bg-gray-900 text-black dark:text-white p-5 rounded-xl shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent hover:border-${color}-500`}
+                  className={`group dark:bg-gray-900 text-black dark:text-white p-5 rounded-xl shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent hover:border-${color}-500`}
                 >
                   <h3
                     className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 transition-colors`}
