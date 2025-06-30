@@ -1,15 +1,10 @@
 @import "tailwindcss";
+@tailwind utilities;
 
+/* Theme Colors */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +18,71 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Blob Animations */
+@keyframes blob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.05); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, 40px) scale(1.1); }
+}
+.animate-blob1 {
+  animation: blob1 8s infinite ease-in-out;
+}
+.animate-blob2 {
+  animation: blob2 10s infinite ease-in-out;
+}
+.animate-blob3 {
+  animation: blob3 12s infinite ease-in-out;
+}
+
+/* 3D Profile Effect */
+.profile-3d-wrapper {
+  perspective: 1000px;
+}
+.profile-3d-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 16px;
+  will-change: transform;
+}
+.profile-3d-card:hover {
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow Border */
+.glow-border {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, #ff5f6d, cyan, #8bdde8, rgb(238, 155, 238));
+  z-index: -1;
+  filter: blur(10px);
+  animation: gradientMove 10s ease infinite;
+}
+
+/* Optional Gradient Background */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.moving-gradient-bg {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371, #24c6dc, #514a9d);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
 }
