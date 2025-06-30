@@ -136,42 +136,41 @@ export default function Home() {
       <div className="relative z-10 px-6 md:px-10 py-20">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-10">
           {/* Left Sticky Photo */}
-          <div className="w-full sm:w-[250px] shrink-0">
-            <div className="sticky top-20 mx-auto sm:mx-0">
-              <div className="relative w-[250px] h-[270px]">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 blur-2xl opacity-40 animate-glow z-0" />
-                <div
-                  className="relative z-10 w-full h-full"
-                  style={{ perspective: "1000px" }}
-                  onMouseMove={(e) => {
-                    const card = e.currentTarget;
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * 8;
-                    const rotateY = ((x - centerX) / centerX) * -8;
-                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    const card = e.currentTarget;
-                    card.style.transform = "rotateX(0deg) rotateY(0deg)";
-                  }}
-                >
-                  <div className="relative w-full h-full rounded-xl overflow-hidden">
-                    <Image
-                      src="/profile.jpg"
-                      alt="Thilip's Photo"
-                      fill
-                      sizes="(max-width: 640px) 100vw, 250px"
-                      className="object-cover"
-                    />
-                  </div>
+          <div className="w-full sm:w-[250px] shrink-0 flex justify-center sm:block">
+            <div className="relative w-[200px] h-[220px] sm:w-[250px] sm:h-[270px]">
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 blur-2xl opacity-40 animate-glow z-0" />
+              <div
+                className="relative z-10 w-full h-full"
+                style={{ perspective: "1000px" }}
+                onMouseMove={(e) => {
+                  const card = e.currentTarget;
+                  const rect = card.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  const centerX = rect.width / 2;
+                  const centerY = rect.height / 2;
+                  const rotateX = ((y - centerY) / centerY) * 8;
+                  const rotateY = ((x - centerX) / centerX) * -8;
+                  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                }}
+                onMouseLeave={(e) => {
+                  const card = e.currentTarget;
+                  card.style.transform = "rotateX(0deg) rotateY(0deg)";
+                }}
+              >
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Thilip's Photo"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 250px"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
           </div>
+
 
           {/* Right Content */}
           <div className="flex-1">
