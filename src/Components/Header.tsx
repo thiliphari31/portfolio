@@ -18,7 +18,7 @@ export default function Header() {
         shadow
       "
     >
-      <nav className="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm sm:text-base text-white">
+      <nav className="flex flex-wrap justify-center gap-6 sm:gap-6 text-sm sm:text-base text-white">
         <a href="/" className="hover:text-blue-400 transition-colors">
           Home
         </a>

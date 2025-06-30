@@ -223,7 +223,7 @@ export default function Home() {
             {/* Tools */}
             <div className="mt-10">
               <h3 className="text-2xl font-bold mb-4">Tools I Used</h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                 {[
                   { src: "/vscode.png", alt: "VS Code", border: "hover:border-blue-500" },
                   { src: "/tailwind.png", alt: "Tailwind", border: "hover:border-cyan-500" },
