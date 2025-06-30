@@ -1,9 +1,10 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
@@ -14,13 +15,63 @@ export default function Home() {
       className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500 ${darkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
     >
-      {/* Toggle Button */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* Floating Menu */}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
+        {open && (
+          <div className="flex flex-col items-end gap-2">
+            <button
+              onClick={() => setDarkMode(false)}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white shadow hover:scale-110 transition"
+              title="Dark Mode"
+            >
+              🌙
+            </button>
+            <button
+              onClick={() => setDarkMode(true)}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white text-black shadow hover:scale-110 transition"
+              title="Light Mode"
+            >
+              ☀️
+            </button>
+            <a
+              href="https://www.linkedin.com/in/thilipkumar-k31"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white shadow hover:scale-110 transition"
+              title="LinkedIn"
+            >
+              in
+            </a>
+
+            <a
+              href="https://github.com/thiliphari31"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white shadow hover:scale-110 transition"
+              title="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 496 512"
+                className="w-4 h-4"
+                fill="currentColor"
+              >
+                <path d="M165.9 397.4c0 2-2.3 4.3-5.2 3.6C82 380.7 48 317.4 48 256.2c0-76 61.5-137.5 
+                137.5-137.5 38.1 0 72.6 15.4 97.6 40.2 25-24.8 59.5-40.2 97.6-40.2C386.5 78.7 448 140.2 
+                448 216.2c0 61.2-34 124.5-112.7 144.8-2.9.6-5.2-1.6-5.2-3.6v-29.4c0-10.3 3.6-17 7.6-23.5 
+                37.5-9 69.7-31.2 69.7-77.5 0-17.2-6.1-31.3-16.1-42.3 1.6-3.9 7-19.7-1.5-41-13.2-4-43.5 16.7-43.5 
+                16.7-12.5-3.5-25.8-5.2-39.1-5.2s-26.6 1.7-39.1 5.2c0 0-30.3-20.7-43.5-16.7-8.5 21.3-3.1 37.1-1.5 
+                41-10 11-16.1 25.1-16.1 42.3 0 46.4 32.2 68.5 69.7 77.5 4 6.5 7.6 13.2 7.6 23.5v29.4z" />
+              </svg>
+            </a>
+
+          </div>
+        )}
         <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="text-white dark:bg-white dark:text-black px-4 py-2 rounded-full shadow hover:scale-105 transition"
+          onClick={() => setOpen(!open)}
+          className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow hover:scale-110 transition"
         >
-          {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
+          {open ? "✕" : "+"}
         </button>
       </div>
 
@@ -67,9 +118,7 @@ export default function Home() {
           <div className="w-full sm:w-[250px] shrink-0">
             <div className="sticky top-20 mx-auto sm:mx-0">
               <div className="relative w-[250px] h-[270px]">
-                {/* Glowing Background */}
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 blur-2xl opacity-40 animate-glow z-0" />
-                {/* 3D Card */}
                 <div
                   className="relative z-10 w-full h-full"
                   style={{ perspective: "1000px" }}
@@ -117,7 +166,6 @@ export default function Home() {
             <p className="text-base sm:text-lg mt-4 leading-7">
               Apart from coding, I enjoy bodybuilding, basketball, and learning new design trends.
             </p>
-            
 
             {/* Skill Cards */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -151,7 +199,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
 
             {/* Tools */}
             <div className="mt-10">
