@@ -2,19 +2,42 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   const [open, setOpen] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div
       className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500 ${darkMode ? "bg-black text-white" : "bg-white text-black"
         }`}
     >
+      {/* Custom Cursor */}
+      <div
+        className="fixed top-0 left-0 pointer-events-none z-[999]"
+        style={{
+          transform: `translate3d(${cursorPos.x - 10}px, ${cursorPos.y - 10}px, 0)`,
+          transition: "transform 0.1s ease-out",
+        }}
+      >
+        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-70 blur-md"></div>
+      </div>
+
       {/* Floating Menu */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
         {open && (
@@ -42,7 +65,6 @@ export default function Home() {
             >
               in
             </a>
-
             <a
               href="https://github.com/thiliphari31"
               target="_blank"
@@ -59,12 +81,11 @@ export default function Home() {
                 <path d="M165.9 397.4c0 2-2.3 4.3-5.2 3.6C82 380.7 48 317.4 48 256.2c0-76 61.5-137.5 
                 137.5-137.5 38.1 0 72.6 15.4 97.6 40.2 25-24.8 59.5-40.2 97.6-40.2C386.5 78.7 448 140.2 
                 448 216.2c0 61.2-34 124.5-112.7 144.8-2.9.6-5.2-1.6-5.2-3.6v-29.4c0-10.3 3.6-17 7.6-23.5 
-                37.5-9 69.7-31.2 69.7-77.5 0-17.2-6.1-31.3-16.1-42.3 1.6-3.9 7-19.7-1.5-41-13.2-4-43.5 16.7-43.5 
-                16.7-12.5-3.5-25.8-5.2-39.1-5.2s-26.6 1.7-39.1 5.2c0 0-30.3-20.7-43.5-16.7-8.5 21.3-3.1 37.1-1.5 
-                41-10 11-16.1 25.1-16.1 42.3 0 46.4 32.2 68.5 69.7 77.5 4 6.5 7.6 13.2 7.6 23.5v29.4z" />
+                37.5-9 69.7-31.2 69.7-77.5 0-17.2-6.1-31.3-16.1-42.3 1.6-3.9 7-19.7-1.5-41-13.2-4-43.5 
+                16.7-43.5 16.7-12.5-3.5-25.8-5.2-39.1-5.2s-26.6 1.7-39.1 5.2c0 0-30.3-20.7-43.5-16.7-8.5 
+                21.3-3.1 37.1-1.5 41-10 11-16.1 25.1-16.1 42.3 0 46.4 32.2 68.5 69.7 77.5 4 6.5 7.6 13.2 7.6 23.5v29.4z" />
               </svg>
             </a>
-
           </div>
         )}
         <button
@@ -79,7 +100,7 @@ export default function Home() {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[5%] left-[10%] w-[300px] h-[300px] bg-pink-500 opacity-20 rounded-full blur-3xl animate-blob1"></div>
         <div className="absolute top-[40%] left-[60%] w-[350px] h-[350px] bg-purple-500 opacity-20 rounded-full blur-3xl animate-blob2"></div>
-        <div className="absolute top-[65%] left-[25%] w-[250px] h-[250px] bg-cyan-500 opacity-20 rounded-full blur-3xl animate-blob3"></div>
+        <div className="absolute top-[65%] left-[25%] w-[250px] h-[250px] bg-cyan-300 opacity-20 rounded-full blur-3xl animate-blob3"></div>
       </div>
 
       {/* Home Section */}
