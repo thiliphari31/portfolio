@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   const [open, setOpen] = useState(false);
@@ -24,22 +23,18 @@ export default function Home() {
 
   return (
     <div
-      className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500 ${darkMode ? "bg-black text-white" : "bg-white text-black"
-        }`}
+      className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500 
+        ${darkMode ? "bg-black text-white" : "bg-white text-black"} 
+       
+        bg-no-repeat bg-center bg-fixed`}
+      style={{
+        backgroundImage: "url('/bg-3img.png')",
+        backgroundSize: "350px auto",
+      }}
     >
-      {/* Custom Cursor */}
-      <div
-        className="fixed top-0 left-0 pointer-events-none z-[999]"
-        style={{
-          transform: `translate3d(${cursorPos.x - 10}px, ${cursorPos.y - 10}px, 0)`,
-          transition: "transform 0.1s ease-out",
-        }}
-      >
-        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-70 blur-md"></div>
-      </div>
 
       {/* Floating Menu */}
-      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 ">
         {open && (
           <div className="flex flex-col items-end gap-2">
             <button
@@ -56,36 +51,23 @@ export default function Home() {
             >
               ☀️
             </button>
+
+            {/* social icon */}
             <a
               href="https://www.linkedin.com/in/thilipkumar-k31"
               target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white shadow hover:scale-110 transition"
-              title="LinkedIn"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white"
             >
               in
             </a>
             <a
               href="https://github.com/thiliphari31"
               target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white shadow hover:scale-110 transition"
-              title="GitHub"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 496 512"
-                className="w-4 h-4"
-                fill="currentColor"
-              >
-                <path d="M165.9 397.4c0 2-2.3 4.3-5.2 3.6C82 380.7 48 317.4 48 256.2c0-76 61.5-137.5 
-                137.5-137.5 38.1 0 72.6 15.4 97.6 40.2 25-24.8 59.5-40.2 97.6-40.2C386.5 78.7 448 140.2 
-                448 216.2c0 61.2-34 124.5-112.7 144.8-2.9.6-5.2-1.6-5.2-3.6v-29.4c0-10.3 3.6-17 7.6-23.5 
-                37.5-9 69.7-31.2 69.7-77.5 0-17.2-6.1-31.3-16.1-42.3 1.6-3.9 7-19.7-1.5-41-13.2-4-43.5 
-                16.7-43.5 16.7-12.5-3.5-25.8-5.2-39.1-5.2s-26.6 1.7-39.1 5.2c0 0-30.3-20.7-43.5-16.7-8.5 
-                21.3-3.1 37.1-1.5 41-10 11-16.1 25.1-16.1 42.3 0 46.4 32.2 68.5 69.7 77.5 4 6.5 7.6 13.2 7.6 23.5v29.4z" />
-              </svg>
+              GH
             </a>
+
           </div>
         )}
         <button
@@ -94,6 +76,7 @@ export default function Home() {
         >
           {open ? "✕" : "+"}
         </button>
+
       </div>
 
       {/* Blobs */}
@@ -134,44 +117,7 @@ export default function Home() {
 
       {/* About Section */}
       <div className="relative z-10 px-6 md:px-10 py-20">
-  <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-10">
-    {/* Left Sticky Photo */}
-    <div className="w-full sm:w-[250px] shrink-0 flex justify-center sm:block">
-      <div className="relative w-[270px] h-[270px] sm:w-[250px] sm:h-[270px]">
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 blur-2xl opacity-40 animate-glow z-0" />
-        <div
-          className="relative z-10 w-full h-full"
-          style={{ perspective: "1000px" }}
-          onMouseMove={(e) => {
-            const card = e.currentTarget;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * 8;
-            const rotateY = ((x - centerX) / centerX) * -8;
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-          }}
-          onMouseLeave={(e) => {
-            const card = e.currentTarget;
-            card.style.transform = "rotateX(0deg) rotateY(0deg)";
-          }}
-        >
-          <div className="relative w-full h-full rounded-xl overflow-hidden">
-            <Image
-              src="/profile.jpg"
-              alt="Thilip's Photo"
-              fill
-              sizes="(max-width: 640px) 100vw, 250px"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-10">
           {/* Right Content */}
           <div className="flex-1">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">About Me</h2>

@@ -86,3 +86,19 @@ body {
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
 }
+
+/* bg */
+/* @keyframes float3d {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px) rotateX(2deg) rotateY(2deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+}
+.animate-float3d {
+  animation: float3d 10s ease-in-out infinite;
+} */
