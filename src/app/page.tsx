@@ -24,16 +24,16 @@ export default function Home() {
   return (
     <div
       className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500 
-        ${darkMode ? "bg-black text-white" : "bg-white text-black"} 
-       
-        bg-no-repeat bg-center bg-fixed`}
+    ${darkMode ? "bg-black text-white" : "bg-white text-black"} 
+    bg-no-repeat bg-center bg-fixed`}
       style={{
-        backgroundImage: "url('/bg-3img.png')",
-        backgroundSize: "350px auto",
+        backgroundImage: "url('/bg-6img.png')",
+        backgroundSize: "250px auto",
+
       }}
     >
-
       {/* Floating Menu */}
+
       <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 ">
         {open && (
           <div className="flex flex-col items-end gap-2">
@@ -116,7 +116,7 @@ export default function Home() {
       </div>
 
       {/* About Section */}
-      <div className="relative z-10 px-6 md:px-10 py-20">
+      <div id="about" className="relative z-10 px-6 md:px-10 py-20">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row gap-10">
           {/* Right Content */}
           <div className="flex-1">
@@ -138,26 +138,29 @@ export default function Home() {
               {[
                 {
                   title: "Frontend Skills",
-                  color: "purple",
+                  colorBorder: "hover:border-purple-500/50",
+                  colorText: "group-hover:text-purple-600 dark:group-hover:text-purple-400",
                   content: "HTML, CSS, JavaScript, React, Tailwind CSS",
                 },
                 {
                   title: "Tools & Design",
-                  color: "blue",
+                  colorBorder: "hover:border-blue-500/50",
+                  colorText: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
                   content: "Figma, Photoshop, GitHub, VS Code",
                 },
                 {
                   title: "Soft Skills",
-                  color: "pink",
+                  colorBorder: "hover:border-pink-500/50",
+                  colorText: "group-hover:text-pink-600 dark:group-hover:text-pink-400",
                   content: "Communication, Teamwork, Problem-Solving",
                 },
-              ].map(({ title, color, content }) => (
+              ].map(({ title, colorBorder, colorText, content }) => (
                 <div
                   key={title}
-                  className={`group bg-white dark:bg-gray-900 text-black dark:text-white p-5 rounded-xl shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent hover:border-${color}-500`}
+                  className={`group bg-white dark:bg-gray-900 text-black dark:text-white p-5 rounded-xl shadow transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-transparent ${colorBorder}`}
                 >
                   <h3
-                    className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 group-hover:text-${color}-600 dark:group-hover:text-${color}-400 transition-colors`}
+                    className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 transition-colors ${colorText}`}
                   >
                     {title}
                   </h3>
@@ -165,6 +168,8 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+
 
             {/* Tools */}
             <div className="mt-10">

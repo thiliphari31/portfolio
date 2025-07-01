@@ -22,13 +22,14 @@ export default function Header() {
         <a href="/" className="hover:text-blue-400 transition-colors">
           Home
         </a>
-        <a href="/About" className="hover:text-blue-400 transition-colors">
+        <a href="#about" className="hover:text-blue-400 transition-colors">
           About
         </a>
-        <a href="/Service" className="hover:text-blue-400 transition-colors">
+
+        <a href="#Service" className="hover:text-blue-400 transition-colors">
           Service
         </a>
-        <a href="/ContactMe" className="hover:text-blue-400 transition-colors">
+        <a href="ContactMe" className="hover:text-blue-400 transition-colors">
           Contact Me
         </a>
       </nav>

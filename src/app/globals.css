@@ -87,6 +87,11 @@ body {
   animation: gradientMove 15s ease infinite;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* bg */
 /* @keyframes float3d {
   0% {
