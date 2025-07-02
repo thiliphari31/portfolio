@@ -26,7 +26,7 @@ export default function Header() {
           About
         </a>
 
-        <a href="#Service" className="hover:text-blue-400 transition-colors">
+        <a href="#service" className="hover:text-blue-400 transition-colors">
           Service
         </a>
         <a href="ContactMe" className="hover:text-blue-400 transition-colors">
