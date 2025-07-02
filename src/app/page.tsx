@@ -258,68 +258,49 @@ export default function Home() {
             </p>
 
             {/* Skill Cards */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   title: "Frontend Skills",
-                  color: "purple",
                   content: "HTML, CSS, JavaScript, React, Tailwind CSS",
+                  borderColor: "border-purple-500/40",
+                  hoverBorderColor: "hover:border-purple-500",
+                  textColor: "group-hover:text-purple-500",
                 },
                 {
                   title: "Tools & Design",
-                  color: "blue",
                   content: "Figma, Photoshop, GitHub, VS Code",
+                  borderColor: "border-blue-500/40",
+                  hoverBorderColor: "hover:border-blue-500",
+                  textColor: "group-hover:text-blue-500",
                 },
                 {
                   title: "Soft Skills",
-                  color: "pink",
                   content: "Communication, Teamwork, Problem-Solving",
+                  borderColor: "border-pink-500/40",
+                  hoverBorderColor: "hover:border-pink-500",
+                  textColor: "group-hover:text-pink-500",
                 },
-              ].map(({ title, color, content }) => (
+              ].map(({ title, content, borderColor, hoverBorderColor, textColor }) => (
                 <div
                   key={title}
                   className={`
-        group relative
-        bg-white/10
-        dark:bg-white/5
+        group
+        bg-white/10 dark:bg-white/5
         backdrop-blur
-        "bg-black text-white" : "bg-white text-black"
+        "bg-black text-white:bg-black text-white"
         p-5
         rounded-xl
         shadow
         transition-transform duration-300
         hover:-translate-y-2
         hover:shadow-2xl
-        border-t border-l border-transparent
-        border-r-${color}-500
-        border-b-${color}-500
+        border-b-2 border-r-2 ${borderColor} border-opacity-40
+        ${hoverBorderColor}
       `}
                 >
-                  {/* AFTER pseudo-element */}
-                  <div
-                    className={`
-          pointer-events-none
-          absolute
-          bottom-0
-          right-0
-          w-full
-          h-full
-          rounded-xl
-          border-r
-          border-b
-          border-${color}-500/0
-          group-hover:border-${color}-500/50
-          transition-colors duration-300
-        `}
-                  />
-
                   <h3
-                    className={`
-          text-lg sm:text-xl lg:text-2xl
-          font-semibold mb-2
-          transition-colors
-          group-hover:text-${color}-500
-        `}
+                    className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 transition-colors ${textColor}`}
                   >
                     {title}
                   </h3>
@@ -327,9 +308,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
-
-
+            
             {/* Tools */}
             <div className="mt-10">
               <h3 className="text-2xl font-bold mb-4">Tools I Use</h3>
@@ -361,28 +340,72 @@ export default function Home() {
           </h2>
 
           {/* Service Cards */}
-          <div id="service" className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
+          <div id="service" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Card 1 */}
-            <div className="group bg-white dark:bg-gray-900 text-black dark:text-white p-6 rounded-xl shadow hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 border border-transparent hover:border-purple-500">
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+            <div
+              className="
+      group
+      bg-white/10 dark:bg-white/5
+      backdrop-blur
+     
+      p-6
+      rounded-xl
+      shadow
+      transition-transform duration-300
+      hover:-translate-y-2
+      hover:shadow-2xl
+      border-b-2 border-r-2 border-purple-500/40
+      hover:border-purple-500
+    "
+            >
+              <h3
+                className="
+        text-xl font-semibold mb-2
+        transition-colors
+        group-hover:text-purple-500
+        font-sans
+      "
+              >
                 Web Development
               </h3>
-              <p className="text-base">
-                Building responsive and modern websites using Next.js, and Tailwind CSS.
+              <p className="text-base font-sans">
+                Building responsive and modern websites using Next.js and Tailwind CSS.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="group bg-white dark:bg-gray-900 text-black dark:text-white p-6 rounded-xl shadow hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 border border-transparent hover:border-blue-500">
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <div
+              className="
+      group
+      bg-white/10 dark:bg-white/5
+      backdrop-blur
+     
+      p-6
+      rounded-xl
+      shadow
+      transition-transform duration-300
+      hover:-translate-y-2
+      hover:shadow-2xl
+      border-b-2 border-r-2 border-blue-500/40
+      hover:border-blue-500
+    "
+            >
+              <h3
+                className="
+        text-xl font-semibold mb-2
+        transition-colors
+        group-hover:text-blue-500
+        font-sans
+      "
+              >
                 UI/UX Design
               </h3>
-              <p className="text-base">
+              <p className="text-base font-sans">
                 Designing clean and user-friendly interfaces to improve user experience.
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -10,3 +10,12 @@ module.exports = {
   },
   plugins: [],
 };
+
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    "border-pink-500/40",
+  ],
+}
