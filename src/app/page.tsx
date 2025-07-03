@@ -37,24 +37,6 @@ export default function Home() {
   }, []);
 
   return (
-    // <div
-    //   className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500
-    //   ${darkMode ? "bg-black text-white" : "bg-white text-black"}
-    //   bg-no-repeat bg-center bg-fixed`}
-    // >
-    //   {/* Background */}
-    //   <div
-    //     aria-hidden="true"
-    //     className="pointer-events-none absolute inset-0 z-0 w-full h-full"
-    //     style={{
-    //       backgroundImage: "url('/bg-8.png')",
-    //       backgroundSize: "w",
-    //       backgroundRepeat: "no-repeat",
-    //       backgroundPosition: "center",
-    //       opacity: 0.7,
-    //     }}
-    //   />
-
     <div
       className={`w-full min-h-screen relative overflow-visible font-sans transition-colors duration-500
     ${darkMode ? "bg-black text-white" : "bg-white text-black"}
@@ -146,98 +128,88 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      {/* <div className="relative z-10 flex flex-col items-center justify-center pt-28 pb-34 text-center gap-6 px-6 md:px-20">
-        <div className="w-[150px] h-[150px] relative rounded-full overflow-hidden border-2 border-gray-700 shadow-xl">
-          <Image src="/profile.jpg" alt="Thilip's Photo" fill className="object-cover" />
-        </div>
-
-        <div className="flex flex-col items-center gap-4 max-w-xl">
-          <h1 className="text-3xl sm:text-4xl font-bold transition duration-500">
-            Hi, I'm Thilip Kumar 👋🏻
-          </h1>
-          <p className="text-base sm:text-lg">Web Developer | UI Designer</p>
-          <p className="text-base sm:text-lg">
-            Passionate about building responsive, user-friendly websites.
-          </p>
-          <div className="flex gap-4 flex-wrap justify-center">
-            <a
-              href="/TK.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative inline-block px-6 py-2 rounded-full font-semibold text-white dark:text-black bg-gradient-to-r
-              from-purple-300 via-pink-300 to-indigo-400 shadow-lg hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out focus:outline-none
-              focus:ring-2 focus:ring-purple-500"
-            >
-              View Resume
-            </a>
-          </div>
-        </div>
-      </div> */}
 
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center 
-      justify-center gap-10 md:gap-16 px-6 md:px-20 py-16 md:py-28">
+      justify-center gap-10 md:gap-24 px-6 md:px-28 py-16 md:py-28 ">
         {/* Text Content */}
-        <div className="flex-1 text-center md:text-left px-16">
+        <div className="flex-1 text-left md:pl-8">
           <h1
-            className={`text-3xl sm:text-4xl font-bold mb-4 ${inter.className}`}
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-4 ${inter.className}`}
           >
             Hi, I'm Thilip Kumar 👋🏻
           </h1>
 
-          <p className="text-base sm:text-lg">Web Developer | UI Designer</p>
-          <p className="text-base sm:text-lg mt-2">
+          <p className="text-base sm:text-xl">Web Developer | UI Designer</p>
+          <p className="text-base sm:text-xl mt-2">
             Passionate about building responsive, user-friendly websites.
           </p>
-          <div className="mt-6 flex justify-center md:justify-start">
+
+          <div className="mt-6 flex justify-start">
             <a
               href="/TK.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-2 rounded-full font-semibold text-white dark:text-black bg-gradient-to-r
-        from-purple-500 via-pink-500 to-indigo-500 shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 ease-in-out focus:outline-none
-        focus:ring-2 focus:ring-pink-400"
+      from-purple-400 via-pink-400 to-indigo-300 shadow-lg hover:scale-105 hover:shadow-2xl transition duration-300 ease-in-out 
+      focus:outline-none focus:ring-2 "
             >
               View Resume
             </a>
           </div>
         </div>
 
-        {/* Profile Image with 3D Hover */}
         <div
           className="
-    group 
-    relative 
-    w-[180px] h-[180px] 
+    relative
+    w-[180px] h-[180px]
     sm:w-[200px] sm:h-[200px]
     md:w-[230px] md:h-[230px]
-    rounded-full 
-    overflow-hidden 
-    border-2 border-gray-700 
-    shadow-xl 
-    transition-transform duration-400 
-    transform 
+    rounded-full
+    overflow-hidden
+    border-2 border-gray-700
+    shadow-xl
     md:-translate-x-4
+    transition-all duration-500
     hover:shadow-purple-500/80
   "
           style={{ perspective: "1000px" }}
         >
+          {/* Background overlay */}
           <div
             className="
-      relative 
-      w-full h-full 
-      transform-gpu 
-      transition-transform duration-500 
-      group-hover:rotate-x-6 
-      group-hover:rotate-y-6
-    "
+    absolute inset-0
+    bg-gradient-to-br from-purple-500/30 to-pink-500/30
+    opacity-0
+    transition-opacity duration-500
+    hover:opacity-100
+    pointer-events-none
+    z-0
+  "
+          />
+
+
+          {/* Image container */}
+          <div
+            className="
+    relative
+    w-full h-full
+    transform-gpu
+    transition-transform duration-500
+    hover:rotate-x-3 hover:rotate-y-3
+    z-10
+  "
           >
-            <Image src="/profile.jpg" alt="Thilip's Photo" fill className="object-cover" />
+            <Image
+              src="/profile.jpg"
+              alt="Thilip's Photo"
+              fill
+              className="object-cover"
+            />
           </div>
+
         </div>
 
       </div>
-
-
 
 
       {/* About Section */}
@@ -297,8 +269,7 @@ export default function Home() {
         hover:shadow-2xl
         border-b-2 border-r-2 ${borderColor} border-opacity-40
         ${hoverBorderColor}
-      `}
-                >
+      `} >
                   <h3
                     className={`text-lg sm:text-xl lg:text-2xl font-semibold mb-2 transition-colors ${textColor}`}
                   >
@@ -308,22 +279,55 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            
+
             {/* Tools */}
             <div className="mt-10">
               <h3 className="text-2xl font-bold mb-4">Tools I Use</h3>
               <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                 {[
-                  { src: "/vscode.png", alt: "VS Code", border: "hover:border-blue-500" },
-                  { src: "/tailwind.png", alt: "Tailwind", border: "hover:border-cyan-500" },
-                  { src: "/github.jpg", alt: "GitHub", border: "hover:border-gray-300" },
-                  { src: "/next.jpg", alt: "Next.js", border: "hover:border-black dark:hover:border-white" },
+                  {
+                    src: "/vscode.png",
+                    alt: "VS Code",
+                    border: "border-blue-500/30",
+                    hoverBorder: "hover:border-blue-500",
+                  },
+                  {
+                    src: "/tailwind.png",
+                    alt: "Tailwind",
+                    border: "border-cyan-500/30",
+                    hoverBorder: "hover:border-cyan-500",
+                  },
+                  {
+                    src: "/R.png",
+                    alt: "GitHub",
+                    border: "border-pink-500/30",
+                    hoverBorder: "hover:border-pink-500",
+                  },
+                  {
+                    src: "/nextjs.jpg",
+                    alt: "Next.js",
+                    border: "border-purple-500/30",
+                    hoverBorder: "hover:border-purple-500",
+                  },
                 ].map((tool) => (
                   <div
                     key={tool.alt}
-                    className={`w-16 h-16 flex items-center justify-center border dark:border-gray-600 rounded-xl transition duration-300 ${tool.border}`}
+                    className={`relative
+          w-16 h-16
+          flex items-center justify-center
+          rounded-xl
+          bg-white/10 dark:bg-white/5 backdrop-blur
+          transition-transform duration-300 hover:scale-105
+          border-b-2 border-r-2 ${tool.border} ${tool.hoverBorder}
+          hover:shadow-[4px_4px_0_0_rgba(0,0,0,0.1)]
+          dark:hover:shadow-[4px_4px_0_0_rgba(255,255,255,0.1)]
+        `}
                   >
-                    <img src={tool.src} alt={tool.alt} className="w-10 h-10 object-contain" />
+                    <img
+                      src={tool.src}
+                      alt={tool.alt}
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                 ))}
               </div>
