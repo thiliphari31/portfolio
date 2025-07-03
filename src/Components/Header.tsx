@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header
+  
+      <header
       className="
         fixed 
         top-4 left-1/2 -translate-x-1/2 
@@ -29,10 +30,11 @@ export default function Header() {
         <a href="#service" className="hover:text-blue-400 transition-colors">
           Service
         </a>
-        <a href="ContactMe" className="hover:text-blue-400 transition-colors">
+        <a href="Contactme" className="hover:text-blue-400 transition-colors">
           Contact Me
         </a>
       </nav>
+    
     </header>
   );
 }

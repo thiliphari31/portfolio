@@ -2,10 +2,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Inter } from 'next/font/google';
+import Header from "@/Components/Header";
 
 const inter = Inter({ subsets: ['latin'] });
-
-
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   const [open, setOpen] = useState(false);
@@ -46,8 +45,7 @@ export default function Home() {
         backgroundSize: "450px auto",
       }}
     >
-
-
+<Header />
       {/* Floating Buttons */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
         {open && (
@@ -282,7 +280,7 @@ export default function Home() {
 
             {/* Tools */}
             <div className="mt-10">
-              <h3 className="text-2xl font-bold mb-4">Tools I Use</h3>
+              <h3 className="text-2xl font-bold mb-4">Tools I know</h3>
               <div className="flex flex-wrap justify-center sm:justify-start gap-3">
                 {[
                   {
@@ -308,6 +306,12 @@ export default function Home() {
                     alt: "Next.js",
                     border: "border-purple-500/30",
                     hoverBorder: "hover:border-purple-500",
+                  },
+                   {
+                    src: "/wp2.png",
+                    alt: "VS Code",
+                    border: "border-blue-500/30",
+                    hoverBorder: "hover:border-blue-500",
                   },
                 ].map((tool) => (
                   <div
@@ -412,6 +416,88 @@ export default function Home() {
 
         </div>
       </div>
-    </div>
+
+      {/* ContactMe */}
+
+
+      <div  className="relative z-10 px-6 md:px-10 py-20 ">
+  <div id="Contactme" className="max-w-3xl mx-auto ">
+    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
+      Get In Touch
+    </h2>
+
+    <form
+      className="
+        bg-white/10 dark:bg-white/5
+       
+        backdrop-blur
+        p-6 sm:p-10
+        rounded-xl
+        border border-transparent
+        hover:border-pink-400/40
+        transition duration-300
+        shadow-lg
+      "
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Name */}
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="
+            w-full p-3 rounded-md
+            bg-white/20 dark:bg-white/10
+            focus:outline-none focus:ring-2 focus:ring-pink-400
+            transition
+          "
+        />
+
+        {/* Email */}
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="
+            w-full p-3 rounded-md
+            bg-white/20 dark:bg-white/10
+            
+            focus:outline-none focus:ring-2 focus:ring-pink-400
+            transition
+          "
+        />
+      </div>
+
+      {/* Message */}
+      <textarea
+        placeholder="Your Message"
+        
+        className="
+          w-full mt-4 p-3 rounded-md
+          bg-white/20 dark:bg-white/10
+          focus:outline-none focus:ring-2 focus:ring-pink-400
+          transition
+          resize-none
+        "
+      ></textarea>
+
+      {/* Button */}
+      <div className="mt-6 text-center">
+        <button
+          type="submit"
+          className="
+            inline-block px-8 py-3 rounded-full font-semibold
+           bg-black text-white:bg-black text-white
+            bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500
+            shadow-lg hover:scale-105 hover:shadow-2xl
+            transition duration-300 ease-in-out
+            focus:outline-none focus:ring-2 focus:ring-pink-400
+          "
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+ </div>
   );
 }
