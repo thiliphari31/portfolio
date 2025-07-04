@@ -297,21 +297,21 @@ export default function Home() {
                   },
                   {
                     src: "/R.png",
-                    alt: "GitHub",
-                    border: "border-pink-500/30",
-                    hoverBorder: "hover:border-pink-500",
+                    alt: "github",
+                    border: "border-blue-700/30",
+                    hoverBorder: "hover:border-blue-300",
                   },
                   {
                     src: "/nextjs.jpg",
                     alt: "Next.js",
-                    border: "border-purple-500/30",
-                    hoverBorder: "hover:border-purple-500",
+                    border: "border-blue-500/30",
+                    hoverBorder: "hover:border-white",
                   },
                    {
                     src: "/wp2.png",
-                    alt: "VS Code",
+                    alt: "wordpress",
                     border: "border-blue-500/30",
-                    hoverBorder: "hover:border-blue-500",
+                    hoverBorder: "hover:border-blue-300",
                   },
                 ].map((tool) => (
                   <div
@@ -425,7 +425,7 @@ export default function Home() {
     <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
       Get In Touch
     </h2>
-
+                
     <form
       className="
         bg-white/10 dark:bg-white/5
