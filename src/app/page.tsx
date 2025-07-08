@@ -41,11 +41,11 @@ export default function Home() {
     ${darkMode ? "bg-black text-white" : "bg-white text-black"}
     bg-fixed bg-no-repeat bg-center`}
       style={{
-        backgroundImage: "url('/bg-8.png')",
-        backgroundSize: "450px auto",
+        backgroundImage: "url('/bg-5img.png')",
+        backgroundSize: "250px auto",
       }}
     >
-<Header />
+      <Header />
       {/* Floating Buttons */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
         {open && (
@@ -307,7 +307,7 @@ export default function Home() {
                     border: "border-blue-500/30",
                     hoverBorder: "hover:border-white",
                   },
-                   {
+                  {
                     src: "/wp2.png",
                     alt: "wordpress",
                     border: "border-blue-500/30",
@@ -420,84 +420,98 @@ export default function Home() {
       {/* ContactMe */}
 
 
-      <div  className="relative z-10 px-6 md:px-10 py-20 ">
-  <div id="Contactme" className="max-w-3xl mx-auto ">
-    <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
-      Get In Touch
-    </h2>
-                
-    <form
-      className="
-        bg-white/10 dark:bg-white/5
-       
-        backdrop-blur
+      <div
+        className={`relative z-10 px-6 md:px-10 py-20 transition-colors duration-500 
+    ${darkMode ? "text-white" : "text-black"}`}
+      >
+        <div id="Contactme" className="max-w-3xl mx-auto ">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 ">
+            Get In Touch
+          </h2>
+          <p className="text-center mb-8 text-gray-400 dark:text-gray-500">
+            Have a project or just want to say hello? I'd love to hear from you.
+          </p>
+
+          <form
+            className="
+        relative
         p-6 sm:p-10
-        rounded-xl
-        border border-transparent
-        hover:border-pink-400/40
+        rounded-2xl
         transition duration-300
-        shadow-lg
+        backdrop-blur
       "
-    >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Name */}
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="
-            w-full p-3 rounded-md
-            bg-white/20 dark:bg-white/10
-            focus:outline-none focus:ring-2 focus:ring-pink-400
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Name */}
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="
+            w-full p-3 rounded-lg
+            bg-transparent
+            text-black dark:text-white
+            placeholder-gray-500 dark:placeholder-gray-400
+            border border-gray-300 dark:border-gray-700
+            focus:outline-none focus:ring-2  
+            transition 
+          "
+              />
+
+              {/* Email */}
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="
+            w-full p-3 rounded-lg
+            bg-transparent
+            text-black dark:text-white
+            placeholder-gray-500 dark:placeholder-gray-400
+            border border-gray-300 dark:border-gray-700
+            focus:outline-none focus:ring-2 
             transition
           "
-        />
+              />
+            </div>
 
-        {/* Email */}
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="
-            w-full p-3 rounded-md
-            bg-white/20 dark:bg-white/10
-            
-            focus:outline-none focus:ring-2 focus:ring-pink-400
-            transition
-          "
-        />
-      </div>
-
-      {/* Message */}
-      <textarea
-        placeholder="Your Message"
-        
-        className="
-          w-full mt-4 p-3 rounded-md
-          bg-white/20 dark:bg-white/10
-          focus:outline-none focus:ring-2 focus:ring-pink-400
+            {/* Message */}
+            <textarea
+              placeholder="Your Message"
+              rows={5}
+              className="
+          w-full mt-4 p-3 rounded-lg
+          bg-transparent
+          text-black dark:text-white
+          placeholder-gray-500 dark:placeholder-gray-400
+          border border-gray-300 dark:border-gray-700
+          focus:outline-none focus:ring-2  
           transition
           resize-none
         "
-      ></textarea>
+            ></textarea>
 
-      {/* Button */}
-      <div className="mt-6 text-center">
-        <button
-          type="submit"
-          className="
+            {/* Button */}
+            <div className="mt-6 text-center">
+              <button
+                type="submit"
+                className="
             inline-block px-8 py-3 rounded-full font-semibold
-           bg-black text-white:bg-black text-white
+            text-white
             bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500
             shadow-lg hover:scale-105 hover:shadow-2xl
             transition duration-300 ease-in-out
             focus:outline-none focus:ring-2 focus:ring-pink-400
           "
-        >
-          Send Message
-        </button>
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
-  </div>
-</div>
- </div>
+
+
+
+
+    </div>
   );
 }
